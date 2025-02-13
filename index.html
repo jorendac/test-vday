@@ -59,9 +59,26 @@
             color: #ff4d4d;
             margin-top: 20px;
         }
+        #suspiciousCat {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+        
     </style>
 </head>
 <body>
+    <div id="suspiciousCat" class="hidden">
+        <img src="sus.gif" alt="Suspicious cat" width="100">
+    </div>
+    
     <div class="container" id="question">
         <h1>Be my Valentine?</h1>
         <img src="qcat.gif.gif" alt="Cute cat" class="cat-image">
@@ -92,6 +109,7 @@
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const tryAgainBtn = document.getElementById('tryAgainBtn');
+        const suspiciousCat = document.getElementById('suspiciousCat');
 
         let noCount = 0;
 
@@ -112,6 +130,16 @@
             sadCat.classList.add('hidden');
             question.classList.remove('hidden');
         });
+
+        
+
+noBtn.addEventListener('mouseover', () => {
+    suspiciousCat.classList.remove('hidden');
+});
+
+noBtn.addEventListener('mouseout', () => {
+    suspiciousCat.classList.add('hidden');
+});
     </script>
 </body>
 </html>
