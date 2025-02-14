@@ -71,12 +71,29 @@
     opacity: 0;
     pointer-events: none;
 }
+
+        #surprisedCat {
+    position: fixed;
+    top: 500px;
+    left: 150px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
         
     </style>
 </head>
 <body>
     <div id="suspiciousCat" class="hidden">
         <img src="sus.gif" alt="Suspicious cat" width="250">
+    </div>
+
+       <div id="surprisedCat" class="hidden">
+        <img src="surprisedCat.gif" alt="Surprised cat" width="250">
     </div>
     
     <div class="container" id="question">
@@ -110,6 +127,7 @@
         const noBtn = document.getElementById('noBtn');
         const tryAgainBtn = document.getElementById('tryAgainBtn');
         const suspiciousCat = document.getElementById('suspiciousCat');
+        const surprisedCat = document.getElementById('surprisedCat');
 
         let noCount = 0;
 
@@ -140,6 +158,18 @@ noBtn.addEventListener('mouseover', () => {
 noBtn.addEventListener('mouseout', () => {
     suspiciousCat.classList.add('hidden');
 });
+
+    
+
+yesBtn.addEventListener('mouseover', () => {
+    surprisedCat.classList.remove('hidden');
+});
+
+yesBtn.addEventListener('mouseout', () => {
+    surprisedCat.classList.add('hidden');
+});
     </script>
 </body>
 </html>
+
+
